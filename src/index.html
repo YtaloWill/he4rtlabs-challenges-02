@@ -1,17 +1,80 @@
 <!DOCTYPE html>
+	<!--
+		Link para nossa identidade visual
+		https://imgur.com/a/WXy7lwN
+	-->
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>He4rtLabsChallenges</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
+	<title>He4rtLabsChallenges</title>
+	<link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/main.css">
   </head>
   <body>
-    <!--
-        Link para nossa identidade visual
-        https://imgur.com/a/WXy7lwN
-    -->
-    <div>He4rtLabsChallenges #2</div>
+	<div id="main">
+		<header>
+			<img src="https://i.imgur.com/vACPeL3.png" alt="heartdev logo">
+			<h1>Planilha de cotação para Freelas</h1>
+		</header>
+		<div id="inputs">
+			<button id="insert" onclick="showModalInsert()">Inserir</button>
+			<button id="delete" onclick="deleteRows()">Apagar</button>
+			<button id="import" onclick="showModalImport()">Importar</button>
+			<button id="export" onclick="exportTable()">Exportar</button>
+			<input type="number" name="hour" id="hour" placeholder="Insira o valor por hora">
+		</div>
+		<div id="results">
+			<table>
+				<thead>
+					<tr>
+						<th>Funcionalidades</th>
+						<th>Horas Dev</th>
+						<th>Horas Teste</th>
+						<th>Valor</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<aside>
+				<span><h4>Total de Funcionalidades</h4> <p id="totalFeatures">0</p></span>
+				<span><h4>Total Horas Dev</h4> <p id="totalHoursDev">0</p></span>
+				<span><h4>Total Horas Teste</h4> <p id="totalHoursTest">0</p></span>
+				<span><h4>Valor total</h4> <p id="totalValue">0</p></span>
+			</aside>
+		</div>
+	</div>
+
+	<div class="modal" id="modal-insert">
+		<div id="modal-content">
+			<h1>Adicionando Funcionalidades</h1>
+			<label>Nome da Funcionalidade</label>
+			 <input type="text" name="feature" id="txtFeature">
+			<label>Horas para Desenvolvimento</label>
+			 <input type="number" name="hourDev" id="txtHourDev">
+			<label>Horas de Teste</label>
+			 <input type="number" name="hourTest" id="txtHourTest">
+			<div id="buttons">
+				<button id="btnClose" onclick="closeModalInsert()">Fechar</button>
+				<button id="btnInsert" onclick="insertFeature()">Inserir</button>
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="modal-import">
+		<div id="modal-content">
+			<input type="file" name="import" id="importJSON" accept=".json">
+			<button id="btnClose" onclick="closeModalImport()">Fechar</button>
+		</div>
+	</div>
+
+	<footer>
+		<a target="blank" href="https://github.com/YtaloWill"><img src="assets/icons/Github.png" alt="Github"></a>
+		<a target="blank" href="https://www.linkedin.com/in/ytalowilliam/"><img src="assets/icons/Linkedin.png" alt="Linkedin"></a>
+		<a target="blank" href="https://twitter.com/YtaloWillGloria"><img src="assets/icons/Twitter.png" alt="Twitter"></a>
+		<div>He4rtLabsChallenges #2 por YtaloWill =D</div>
+	</footer>
   </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="assets/js/main.js"></script>
 </html>
